@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ua.dp.dmma.crud";
+option java_outer_classname = "CrudProto";
+option objc_class_prefix = "CRUD";
+
+package crud;
+
+
+message Dto {
+    int32 i = 1;
+    string s = 2;
+    bool b = 3;
+}
+
+message DtoList {
+    repeated Dto dto = 1;
+}
+
+message ProcessingResponse{
+    string message = 1;
+}
+
+message Empty {
+
+}
+
+service CrudService {
+    rpc CreateDto (Dto) returns (ProcessingResponse) {
+    }
+    rpc UpdateDto (Dto) returns (ProcessingResponse) {
+    }
+    rpc DeleteDto (Dto) returns (ProcessingResponse) {
+    }
+    rpc GetDtoList (Empty) returns (DtoList) {
+    }
+}
